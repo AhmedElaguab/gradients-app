@@ -10,7 +10,8 @@ import SearchIcon from "@material-ui/icons/Search"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginBottom: 55
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -61,7 +62,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function SearchAppBar() {
+function NavBar() {
   const classes = useStyles()
 
   return (
@@ -97,3 +98,5 @@ export default function SearchAppBar() {
     </div>
   )
 }
+
+export default NavBar

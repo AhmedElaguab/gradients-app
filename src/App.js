@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./App.css"
 import NavBar from "./components/NavBar"
 import ListGradients from "./components/ListGradients"
+import Container from "@material-ui/core/Container"
 
 class App extends Component {
   state = { gradients: GRADIENTS }
@@ -10,7 +11,9 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <ListGradients gradients={gradients} />
+        <Container container xs={12}>
+          <ListGradients gradients={gradients} />
+        </Container>
       </div>
     )
   }
