@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import Paper from "@material-ui/core/Paper"
 import Grid from "@material-ui/core/Grid"
 import { styled } from "@material-ui/core/styles"
+import { Link } from "react-router-dom"
 
 const GradientCard = styled(Paper)({
   padding: 20,
@@ -22,9 +23,19 @@ class Gradient extends Component {
     const { gradient, onClick } = this.props
     return (
       <Grid item xs={12} sm={4}>
-        <GradientCard style={this.createBg(gradient.colors)} onClick={onClick}>
-          {gradient.name}
-        </GradientCard>
+        <Link
+          to={gradient.name
+            .split(" ")
+            .join("_")
+            .toLowerCase()}
+        >
+          <GradientCard
+            style={this.createBg(gradient.colors)}
+            onClick={onClick}
+          >
+            {gradient.name}
+          </GradientCard>
+        </Link>
       </Grid>
     )
   }

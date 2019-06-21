@@ -3,29 +3,46 @@ import "./App.css"
 import NavBar from "./components/NavBar"
 import ListGradients from "./components/ListGradients"
 import Container from "@material-ui/core/Container"
+import { Route } from "react-router-dom"
 
 class App extends Component {
   state = {
     gradients: GRADIENTS,
-    activeGradient: {}
+    activeGradient: {},
+    activeGradientLocation: ""
   }
 
   handleGradientClick = activeGradient => {
-    this.setState({ activeGradient })
-    console.log(activeGradient)
+    this.setState({
+      activeGradient,
+      activeGradientLocation: activeGradient.name
+        .split(" ")
+        .join("_")
+        .toLowerCase()
+    })
   }
 
   render() {
-    const { gradients } = this.state
+    const { gradients, activeGradient, activeGradientLocation } = this.state
     return (
       <div className="App">
         <NavBar />
-        <Container container xs={12}>
-          <ListGradients
-            gradients={gradients}
-            onGradientClick={this.handleGradientClick}
-          />
-        </Container>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Container container xs={12}>
+              <ListGradients
+                gradients={gradients}
+                onGradientClick={this.handleGradientClick}
+              />
+            </Container>
+          )}
+        />
+        <Route
+          path={"/" + activeGradientLocation}
+          render={() => <div>{activeGradientLocation}</div>}
+        />
       </div>
     )
   }
