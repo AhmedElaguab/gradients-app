@@ -19,10 +19,10 @@ class Gradient extends Component {
     }
   }
   render() {
-    const { gradient } = this.props
+    const { gradient, onClick } = this.props
     return (
       <Grid item xs={12} sm={4}>
-        <GradientCard style={this.createBg(gradient.colors)}>
+        <GradientCard style={this.createBg(gradient.colors)} onClick={onClick}>
           {gradient.name}
         </GradientCard>
       </Grid>

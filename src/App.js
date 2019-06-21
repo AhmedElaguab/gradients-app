@@ -5,14 +5,26 @@ import ListGradients from "./components/ListGradients"
 import Container from "@material-ui/core/Container"
 
 class App extends Component {
-  state = { gradients: GRADIENTS }
+  state = {
+    gradients: GRADIENTS,
+    activeGradient: {}
+  }
+
+  handleGradientClick = activeGradient => {
+    this.setState({ activeGradient })
+    console.log(activeGradient)
+  }
+
   render() {
     const { gradients } = this.state
     return (
       <div className="App">
         <NavBar />
         <Container container xs={12}>
-          <ListGradients gradients={gradients} />
+          <ListGradients
+            gradients={gradients}
+            onGradientClick={this.handleGradientClick}
+          />
         </Container>
       </div>
     )

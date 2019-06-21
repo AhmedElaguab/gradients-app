@@ -4,12 +4,16 @@ import Grid from "@material-ui/core/Grid"
 
 class ListGradients extends Component {
   render() {
-    const { gradients } = this.props
+    const { gradients, onGradientClick } = this.props
     return (
       <div>
         <Grid container spacing={3}>
           {gradients.map((gradient, i) => (
-            <Gradient key={i} gradient={gradient} />
+            <Gradient
+              onClick={() => onGradientClick(gradient)}
+              key={i}
+              gradient={gradient}
+            />
           ))}
         </Grid>
       </div>
