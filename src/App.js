@@ -3,6 +3,7 @@ import "./App.css"
 import NavBar from "./components/NavBar"
 import ListGradients from "./components/ListGradients"
 import Container from "@material-ui/core/Container"
+import GradientPage from "./components/GradientPage"
 import { Route } from "react-router-dom"
 
 class App extends Component {
@@ -41,7 +42,7 @@ class App extends Component {
         />
         <Route
           path={"/" + activeGradientLocation}
-          render={() => <div>{activeGradientLocation}</div>}
+          render={() => <GradientPage gradient={activeGradient} />}
         />
       </div>
     )
