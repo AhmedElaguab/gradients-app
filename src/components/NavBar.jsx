@@ -7,6 +7,7 @@ import InputBase from "@material-ui/core/InputBase"
 import { fade, makeStyles } from "@material-ui/core/styles"
 import MenuIcon from "@material-ui/icons/Menu"
 import SearchIcon from "@material-ui/icons/Search"
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,6 +20,8 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
     display: "none",
+    color: "white",
+    textDecoration: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block"
     }
@@ -77,9 +80,11 @@ function NavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Gradients App
-          </Typography>
+          <Link to="/" className={classes.title}>
+            <Typography variant="h6" noWrap>
+              Gradients App
+            </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
