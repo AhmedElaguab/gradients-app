@@ -37,10 +37,18 @@ class App extends Component {
             .join("_")
             .toLowerCase() === pathname.substr(1)
       )
-      this.setState({
-        activeGradientLocation: pathname.substr(1),
-        activeGradient: activeGradient[0]
-      })
+      if (activeGradient.length > 0) {
+        this.setState({
+          activeGradientLocation: pathname.substr(1),
+          activeGradient: activeGradient[0]
+        })
+      } else {
+        window.location.pathname = "/"
+        this.setState({
+          activeGradientLocation: "/",
+          activeGradient: {}
+        })
+      }
     }
   }
 
