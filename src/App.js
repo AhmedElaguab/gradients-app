@@ -23,8 +23,30 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+    if (
+      window.location.pathname.length > 1 &&
+      !this.state.activeGradientLocation
+    ) {
+      const { gradients } = this.state
+      const { pathname } = window.location
+      const activeGradient = gradients.filter(
+        gradient =>
+          gradient.name
+            .split(" ")
+            .join("_")
+            .toLowerCase() === pathname.substr(1)
+      )
+      this.setState({
+        activeGradientLocation: pathname.substr(1),
+        activeGradient: activeGradient[0]
+      })
+    }
+  }
+
   render() {
     const { gradients, activeGradient, activeGradientLocation } = this.state
+
     return (
       <div className="App">
         <NavBar />
