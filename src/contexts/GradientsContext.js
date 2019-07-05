@@ -14,7 +14,7 @@ const GradientsContextProvider = props => {
 const GRADIENTS = [
   {
     name: "Omolon",
-    colors: ["#091E3A", "#2F80ED", "2D9EE0"]
+    colors: ["#091E3A", "#2F80ED", "#2D9EE0"]
   },
   {
     name: "Farhan",
@@ -30,7 +30,7 @@ const GRADIENTS = [
   },
   {
     name: "Radioactive Heat",
-    colors: ["#F7941E", "#72C6EF", "00A651"]
+    colors: ["#F7941E", "#72C6EF", "#00A651"]
   },
   {
     name: "The Sky And The Sea",

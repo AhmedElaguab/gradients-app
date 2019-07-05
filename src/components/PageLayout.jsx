@@ -9,7 +9,7 @@ const PageLayout = props => {
       <div className="container">
         <ul className="page-layout">
           {gradients.map(gradient => (
-            <Gradient gradient={gradient} />
+            <Gradient key={gradient.name} gradient={gradient} />
           ))}
         </ul>
       </div>
