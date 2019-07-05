@@ -7,7 +7,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: #e3e3e3;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Start navbar */
+.navbar-wrapper {
+  background-color: #673ab7;
+  color: #fff;
+  padding: 25px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  height: 200px;
+}
+
+/* Start page layout */
+.page-layout {
+  background-color: #fff;
+  padding: 15px;
+  position: relative;
+  top: -85px;
+  border-radius: 5px;
 }

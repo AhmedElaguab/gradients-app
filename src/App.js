@@ -1,82 +1,17 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 import "./App.css"
-import NavBar from "./components/NavBar"
-import ListGradients from "./components/ListGradients"
-import Container from "@material-ui/core/Container"
-import GradientPage from "./components/GradientPage"
-import { Route } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import PageLayout from "./components/PageLayout"
 
-class App extends Component {
-  state = {
-    gradients: GRADIENTS,
-    activeGradient: {},
-    activeGradientLocation: ""
-  }
+const App = () => {
+  const [gradients] = useState(GRADIENTS)
 
-  handleGradientClick = activeGradient => {
-    this.setState({
-      activeGradient,
-      activeGradientLocation: activeGradient.name
-        .split(" ")
-        .join("_")
-        .toLowerCase()
-    })
-  }
-
-  componentDidMount() {
-    if (
-      window.location.pathname.length > 1 &&
-      !this.state.activeGradientLocation
-    ) {
-      const { gradients } = this.state
-      const { pathname } = window.location
-      const activeGradient = gradients.filter(
-        gradient =>
-          gradient.name
-            .split(" ")
-            .join("_")
-            .toLowerCase() === pathname.substr(1)
-      )
-      if (activeGradient.length > 0) {
-        this.setState({
-          activeGradientLocation: pathname.substr(1),
-          activeGradient: activeGradient[0]
-        })
-      } else {
-        window.location.pathname = "/"
-        this.setState({
-          activeGradientLocation: "/",
-          activeGradient: {}
-        })
-      }
-    }
-  }
-
-  render() {
-    const { gradients, activeGradient, activeGradientLocation } = this.state
-
-    return (
-      <div className="App">
-        <NavBar />
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <Container container xs={12}>
-              <ListGradients
-                gradients={gradients}
-                onGradientClick={this.handleGradientClick}
-              />
-            </Container>
-          )}
-        />
-        <Route
-          path={"/" + activeGradientLocation}
-          render={() => <GradientPage gradient={activeGradient} />}
-        />
-      </div>
-    )
-  }
+  return (
+    <div className="App">
+      <Navbar />
+      <PageLayout gradients={gradients} />
+    </div>
+  )
 }
 
 const GRADIENTS = [
