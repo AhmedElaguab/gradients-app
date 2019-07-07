@@ -1,6 +1,6 @@
-import React, { useContext } from "react"
-import Gradient from "./Gradient"
-import { GradientsContext } from "./../contexts/GradientsContext"
+import React, { useContext } from 'react'
+import Gradient from './Gradient'
+import { GradientsContext } from './../contexts/GradientsContext'
 
 const PageLayout = props => {
   const gradients = useContext(GradientsContext)

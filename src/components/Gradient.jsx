@@ -1,16 +1,18 @@
-import React from "react"
+import React, { useState } from 'react'
 
 const Gradient = props => {
-  const { gradient } = props
+  const [{ name, colors, direction }, setGradient] = useState({
+    ...props.gradient,
+    direction: 'to right'
+  })
   // Create gradient function
-  const getGradientValue = colors => {
-    return `linear-gradient(to right, ${colors.join(", ")})`
+  const getGradientValue = (direction, colors) => {
+    return `linear-gradient(${direction}, ${colors.join(', ')})`
   }
-  const gradientValue = getGradientValue(gradient.colors)
+  const gradientValue = getGradientValue(direction, colors)
   return (
-    <li className="gradient" style={{ height: 100, background: gradientValue }}>
-      {gradient.name}
-      <h1>{gradient.colors.length}</h1>
+    <li className="gradient" style={{ background: gradientValue }}>
+      {name} ({colors.length} colors)
     </li>
   )
 }
