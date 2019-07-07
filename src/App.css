@@ -62,3 +62,11 @@ body {
 .gradient:last-of-type {
   border-radius: 0 0 5px 5px;
 }
+
+.gradient__name {
+  flex-grow: 1;
+}
+
+.gradient__options svg {
+  margin-left: 10px;
+}
